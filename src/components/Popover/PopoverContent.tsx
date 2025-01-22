@@ -7,7 +7,7 @@ import {
   ReactNode,
 } from 'react';
 import { usePopoverContext } from '.';
-import { popoverContentBaseCls } from '../../consts/className';
+import { popoverContentBaseCls } from '@consts/className';
 
 interface PopoverContentProps {
   children: ReactNode;

@@ -11,6 +11,7 @@ import Popover from '../Popover';
 import SelectTrigger from './SelectTrigger';
 import SelectContent from './SelectContent';
 import SelectItem from './SelectItem';
+import { selectBaseCls } from '@consts/className';
 
 interface SelectProps {
   children: ReactNode;
@@ -66,14 +67,15 @@ const Select: FC<SelectProps> & SelectCompound = (props) => {
     [selectElement]
   );
 
-  const BaseCls = useMemo(
-    () => (classNameProps ? '' : `${''} ${classNameProps}`),
+  const selectCls = useMemo(
+    () =>
+      classNameProps ? selectBaseCls : `${selectBaseCls} ${classNameProps}`,
     [classNameProps]
   );
 
   return (
     <SelectContext.Provider value={selectContext}>
-      <div className={BaseCls}>
+      <div className={selectCls}>
         <Popover>
           <Popover.Trigger>{trigger}</Popover.Trigger>
           <Popover.Content>{content}</Popover.Content>

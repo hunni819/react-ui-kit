@@ -14,7 +14,7 @@ import CarouselItemList from './CarouselItemList';
 import CarouselIndicator from './CarouselIndicator';
 import CarouselNavigator from './CarouselNavigator';
 import CarouselItem from './CarouselItem';
-import { carouselBaseCls } from '../../consts/className';
+import { carouselBaseCls } from '@consts/className';
 
 type CarouselContextProps = {
   carouselIndex: number;

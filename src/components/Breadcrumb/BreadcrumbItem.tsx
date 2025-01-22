@@ -1,6 +1,6 @@
 import { useEffect, useRef, useMemo, ReactNode } from 'react';
-import { breadcrumbItemsBaseCls } from '../../consts/className';
 import { useBreadcrumbContext } from '.';
+import { breadcrumbItemsBaseCls } from '@consts/className';
 
 interface BreadcrumbItemProps {
   children: ReactNode;

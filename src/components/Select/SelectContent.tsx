@@ -1,3 +1,4 @@
+import { selectContentBaseCls } from '@consts/className';
 import { ReactNode, useMemo } from 'react';
 
 interface SelectContentProps {
@@ -8,12 +9,15 @@ interface SelectContentProps {
 const SelectContent = (props: SelectContentProps) => {
   const { children, className: classNameProps } = props;
 
-  const BaseCls = useMemo(
-    () => (classNameProps ? '' : `${''} ${classNameProps}`),
+  const SelectContentCls = useMemo(
+    () =>
+      classNameProps
+        ? selectContentBaseCls
+        : `${selectContentBaseCls} ${classNameProps}`,
     [classNameProps]
   );
 
-  return <div className={BaseCls}>{children}</div>;
+  return <div className={SelectContentCls}>{children}</div>;
 };
 
 export default SelectContent;

@@ -1,7 +1,7 @@
 import { createContext, FC, ReactNode, useContext, useMemo } from 'react';
 import PageButtons from './PageButtons';
 import PageNavigator from './PageNavigator';
-import { paginationBaseCls } from '../../consts/className';
+import { paginationBaseCls } from '@consts/className';
 
 interface PaginationProps {
   children: ReactNode;

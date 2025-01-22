@@ -1,10 +1,9 @@
 import { ReactNode, useContext, useMemo } from 'react';
 import { CarouselContext } from '.';
-
 import {
   carouselNavigatorBaseCls,
   carouselNavigatorWrapCls,
-} from '../../consts/className';
+} from '@consts/className';
 
 interface CarouselNavigatorProps {
   children: ReactNode;

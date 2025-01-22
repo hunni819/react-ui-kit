@@ -15,12 +15,12 @@ import {
   SetStateAction,
   ReactNode,
 } from 'react';
-import BreadcrumbItem from './BreadcrumbItem';
-import { breadcrumbBaseCls } from '../../consts/className';
-import BreadSeperator from './BreadSeperater';
 import { createPortal } from 'react-dom';
+import BreadcrumbItem from './BreadcrumbItem';
+import BreadSeperator from './BreadSeperater';
 import BreadcrumbEclipseItem from './BreadcrumbEclipseItem';
 import BreadcrumbPopover from './BreadcrumbPopover';
+import { breadcrumbBaseCls } from '@consts/className';
 
 interface BreadcrumbCompound {
   Item: typeof BreadcrumbItem;
@@ -72,7 +72,7 @@ const Breadcrumb: FC<BreadcrumbProps> & BreadcrumbCompound = (props) => {
     document.createElement('span')
   );
   const [eclipseRef, setEclipseRef] = useState<HTMLSpanElement>(
-    document.createElement('div')
+    document.createElement('span')
   );
 
   const breadcrumb = useMemo(() => {

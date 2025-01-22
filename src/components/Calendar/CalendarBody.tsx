@@ -1,10 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useCalendarContext } from '.';
 import { getFilteredDate } from './CalendarCurrent';
-import {
-  calendarBodyBaseCls,
-  calendarBodyWrapCls,
-} from '../../consts/className';
+import { calendarBodyBaseCls, calendarBodyWrapCls } from '@consts/className';
 
 interface CalendarBodyProps {
   index?: number;
@@ -21,12 +18,6 @@ const CalendarBody = (props: CalendarBodyProps) => {
       new Date(value.getFullYear(), value.getMonth() + 1, 0).getDay(),
     ];
   }, [value]);
-
-  // 일요일로 시작해서 토요일로 끝나야함
-  // 현재 달이 일요일로 시작하면 시작일을 현재 달의 1일로 한다.
-
-  // 일요일로 시작해서 토요일로 끝나야함
-  // 현재 달이 토요일로 끝나면 종료일을 현재 달의 마지막 날로 한다.
 
   const [startDate, endDate] = useMemo(() => {
     return [

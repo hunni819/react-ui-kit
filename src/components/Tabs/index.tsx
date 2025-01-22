@@ -13,7 +13,7 @@ import React, {
 import TabMenuList from './TabMenuList';
 import TabPannel from './TabPannel';
 import TabMenu from './TabMenu';
-import { tabsBaseCls } from '../../consts/className';
+import { tabsBaseCls } from '@consts/className';
 
 type TabContextProps = {
   tabIndex: number;

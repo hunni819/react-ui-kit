@@ -1,5 +1,6 @@
 import { ReactNode, useMemo } from 'react';
 import { useSelectContext } from '.';
+import { selectItemBaseCls } from '@consts/className';
 
 interface SelectItemProps {
   children: ReactNode;
@@ -15,13 +16,16 @@ const SelectItem = (props: SelectItemProps) => {
     onChange(value);
   };
 
-  const BaseCls = useMemo(
-    () => (classNameProps ? '' : `${''} ${classNameProps}`),
+  const selectItemCls = useMemo(
+    () =>
+      classNameProps
+        ? selectItemBaseCls
+        : `${selectItemBaseCls} ${classNameProps}`,
     [classNameProps]
   );
 
   return (
-    <div className={BaseCls} onClick={() => handleClickOptions(value)}>
+    <div className={selectItemCls} onClick={() => handleClickOptions(value)}>
       {children}
     </div>
   );

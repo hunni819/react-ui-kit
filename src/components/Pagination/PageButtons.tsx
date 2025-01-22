@@ -5,7 +5,7 @@ import {
   pageNumActiveCls,
   paginationButtonBaseCls,
   paginationButtonListCls,
-} from '../../consts/className';
+} from '@consts/className';
 
 interface PageButtonsProps {
   children: ReactNode;

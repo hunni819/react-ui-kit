@@ -3,7 +3,7 @@ import { dayArr, MonthArr, useCalendarContext } from '.';
 import {
   calendarCurrentBaseCls,
   calendarCurrentWrapCls,
-} from '../../consts/className';
+} from '@consts/className';
 
 export const getFilteredDate = () => {
   const filteredDate = (rawDate: Date, options: 'dates' | 'current') => {

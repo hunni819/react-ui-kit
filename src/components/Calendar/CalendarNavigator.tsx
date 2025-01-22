@@ -1,10 +1,9 @@
-import { useCalendarContext } from '.';
-import { useCallback, useMemo } from 'react';
-
 import {
   calendarNavigatorBaseCls,
   calendarNavigatorWrapCls,
-} from '../../consts/className';
+} from '@consts/className';
+import { useCalendarContext } from '.';
+import { useCallback, useMemo } from 'react';
 
 interface CalendarNavigatorProps {
   className?: string;

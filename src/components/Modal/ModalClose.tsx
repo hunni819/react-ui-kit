@@ -6,7 +6,7 @@ import {
   useMemo,
 } from 'react';
 import { useModalContext } from '.';
-import { modalCloseBaseCls, modalCloseWrapCls } from '../../consts/className';
+import { modalCloseBaseCls, modalCloseWrapCls } from '@consts/className';
 
 interface ModalCloseProps {
   children?: ReactNode;

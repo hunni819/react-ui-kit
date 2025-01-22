@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useModalContext } from '.';
-import { modalBackdropBaseCls } from '../../consts/className';
+import { modalBackdropBaseCls } from '@consts/className';
 
 interface ModalBackdropProps {
   className: string;

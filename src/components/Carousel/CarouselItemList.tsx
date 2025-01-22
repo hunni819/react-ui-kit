@@ -5,7 +5,7 @@ import {
   ReactNode,
   useMemo,
 } from 'react';
-import { carouselItemListBaseCls } from '../../consts/className';
+import { carouselItemListBaseCls } from '@consts/className';
 
 interface CarouselItemListProps {
   children: ReactNode;

@@ -12,18 +12,18 @@ export default defineConfig({
       rollupTypes: true,
     }),
   ],
-  // resolve: {
-  //   alias: [
-  //     {
-  //       find: '@ui',
-  //       replacement: path.resolve(__dirname, 'src/components'),
-  //     },
-  //     {
-  //       find: 'const',
-  //       replacement: path.resolve(__dirname, 'src/components'),
-  //     },
-  //   ],
-  // },
+  resolve: {
+    alias: [
+      {
+        find: '@ui',
+        replacement: path.resolve(__dirname, 'src/components'),
+      },
+      {
+        find: '@consts',
+        replacement: path.resolve(__dirname, 'src/consts'),
+      },
+    ],
+  },
   build: {
     lib: {
       // entry: path.resolve(__dirname, 'src/components/index.ts'),

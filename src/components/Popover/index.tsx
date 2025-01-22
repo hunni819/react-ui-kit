@@ -15,7 +15,7 @@ import {
 import PopoverContent from './PopoverContent';
 import PopoverTrigger from './PopoverTrigger';
 import { createPortal } from 'react-dom';
-import { popoverBaseCls } from '../../consts/className';
+import { popoverBaseCls } from '@consts/className';
 
 interface PopoverProps {
   children: ReactNode;

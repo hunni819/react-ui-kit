@@ -1,6 +1,6 @@
 import { ReactNode, useContext, useMemo } from 'react';
 import { TabsContext } from '.';
-import { tabActiveCls, tabsMenuBaseCls } from '../../consts/className';
+import { tabActiveCls, tabsMenuBaseCls } from '@consts/className';
 
 interface TabMenuProps {
   children: ReactNode;

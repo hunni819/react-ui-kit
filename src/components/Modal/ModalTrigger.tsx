@@ -6,10 +6,7 @@ import {
   useMemo,
 } from 'react';
 import { useModalContext } from '.';
-import {
-  modalTriggerBaseCls,
-  modalTriggerWrapCls,
-} from '../../consts/className';
+import { modalTriggerBaseCls, modalTriggerWrapCls } from '@consts/className';
 
 interface ModalTriggerProps {
   children?: ReactNode;

@@ -12,7 +12,7 @@ import ModalTrigger from './ModalTrigger';
 import ModalContent from './ModalContent';
 import { createPortal } from 'react-dom';
 import ModalClose from './ModalClose';
-import { modalBaseCls } from '../../consts/className';
+import { modalBaseCls } from '@consts/className';
 
 interface ModalProps {
   children: ReactNode;

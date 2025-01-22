@@ -3,7 +3,7 @@ import { usePopoverContext } from '.';
 import {
   popoverTriggerBaseCls,
   popoverTriggerWrapCls,
-} from '../../consts/className';
+} from '@consts/className';
 
 interface PopoverTriggerProps {
   children: ReactNode;
@@ -19,18 +19,18 @@ const PopoverTrigger = (props: PopoverTriggerProps) => {
     setIsOpen((prev) => !prev);
   }, []);
 
+  const popoverTriggerCls = useMemo(() => {
+    return classNameProps
+      ? `${popoverTriggerBaseCls} ${classNameProps}`
+      : `${classNameProps}`;
+  }, [classNameProps]);
+
   useEffect(() => {
     if (!buttonRef.current) {
       return;
     }
     handleTriggerRef(buttonRef.current);
   }, []);
-
-  const popoverTriggerCls = useMemo(() => {
-    return classNameProps
-      ? `${popoverTriggerBaseCls} ${classNameProps}`
-      : `${classNameProps}`;
-  }, [classNameProps]);
 
   return (
     <div className={popoverTriggerWrapCls}>

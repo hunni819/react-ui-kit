@@ -4,7 +4,7 @@ import usePaging from './hooks/usePaging';
 import {
   paginationNavigatorBaseCls,
   paginationNavigatorListCls,
-} from '../../consts/className';
+} from '@consts/className';
 
 interface PageNavigatorProps {
   children: ReactNode;

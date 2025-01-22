@@ -1,3 +1,4 @@
+import { tabsMenuListBaseCls } from '@consts/className';
 import {
   Children,
   cloneElement,
@@ -5,7 +6,6 @@ import {
   ReactNode,
   useMemo,
 } from 'react';
-import { tabsMenuListBaseCls } from '../../consts/className';
 
 interface TabMenuListProps {
   children: ReactNode;

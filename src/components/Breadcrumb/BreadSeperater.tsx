@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { breadcrumbSeperateBaseCls } from '../../consts/className';
 import { useBreadcrumbContext } from '.';
+import { breadcrumbSeperateBaseCls } from '@consts/className';
 
 const BreadSeperator = () => {
   const seperator = useRef<HTMLSpanElement>(null);

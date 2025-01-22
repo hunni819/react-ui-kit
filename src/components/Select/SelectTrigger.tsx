@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useSelectContext } from '.';
+import { selectTriggerBaseCls } from '@consts/className';
 
 interface SelectTriggerProps {
   className: string;
@@ -10,13 +11,18 @@ const SelectTrigger = (props: SelectTriggerProps) => {
 
   const { value } = useSelectContext();
 
-  const BaseCls = useMemo(
-    () => (classNameProps ? '' : `${''} ${classNameProps}`),
+  const selectTriggerCls = useMemo(
+    () =>
+      classNameProps
+        ? selectTriggerBaseCls
+        : `${selectTriggerBaseCls} ${classNameProps}`,
     [classNameProps]
   );
 
   return (
-    <div className={BaseCls}>{value ? value : '옵션을 선택해주세요.'}</div>
+    <div className={selectTriggerCls}>
+      {value ? value : '옵션을 선택해주세요.'}
+    </div>
   );
 };
 

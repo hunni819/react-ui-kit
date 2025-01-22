@@ -1,6 +1,6 @@
+import Calendar from '@ui/Calendar';
+import Popover from '@ui/Popover';
 import { useState } from 'react';
-import Calendar from '../Calendar';
-import Popover from '../Popover';
 
 interface DatePickerProps {
   date: Date;

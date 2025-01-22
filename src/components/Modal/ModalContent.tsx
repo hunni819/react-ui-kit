@@ -1,6 +1,6 @@
 import { Children, ReactElement, ReactNode, useMemo } from 'react';
 import ModalClose from './ModalClose';
-import { modalContentBaseCls } from '../../consts/className';
+import { modalContentBaseCls } from '@consts/className';
 
 interface ModalContentProps {
   children: ReactNode;

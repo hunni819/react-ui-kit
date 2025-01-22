@@ -65,3 +65,9 @@ export const breadcrumbBaseCls = getBaseCls('breadcrumb');
 export const breadcrumbSeperateBaseCls = getBaseCls('breadcrumb-seperate');
 export const breadcrumbEclipseBaseCls = getBaseCls('breadcrumb-eclipse');
 export const breadcrumbItemsBaseCls = getBaseCls('breadcrumb-item');
+
+/** Select Component */
+export const selectBaseCls = getBaseCls('select');
+export const selectTriggerBaseCls = getBaseCls('select-trigger');
+export const selectContentBaseCls = getBaseCls('select-content');
+export const selectItemBaseCls = getBaseCls('select-item');

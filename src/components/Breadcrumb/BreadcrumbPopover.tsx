@@ -1,7 +1,7 @@
 import { useMemo, Fragment, cloneElement, useRef, useEffect } from 'react';
-import { breadcrumbEclipseBaseCls } from '../../consts/className';
 import BreadSeperator from './BreadSeperater';
 import { useBreadcrumbContext } from '.';
+import { breadcrumbEclipseBaseCls } from '@consts/className';
 
 const BreadcrumbPopover = () => {
   const eclipseCrumb = useRef(null);
