@@ -19,7 +19,7 @@ const Progress = (props: ProgressProps) => {
     animateId.current = requestAnimationFrame(animationCallback);
 
     return () => {
-      window.requestAnimationFrame(animationCallback);
+      window.cancelAnimationFrame(animateId.current);
     };
   }, [stop, progress]);
 
