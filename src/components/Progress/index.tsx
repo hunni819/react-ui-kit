@@ -11,6 +11,10 @@ const Progress = (props: ProgressProps) => {
   const progressBarRef = useRef<HTMLDivElement>(null);
 
   const animationCallback = (time: number) => {
+    if (stop) {
+      setProgress(100);
+    }
+
     setProgress((prev) => Math.min(prev + time / 1000 / 144, 100)); // 단위 프레임당 시간
     animateId.current = requestAnimationFrame(animationCallback);
   };
