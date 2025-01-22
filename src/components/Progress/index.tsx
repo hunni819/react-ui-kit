@@ -6,35 +6,33 @@ interface ProgressProps {
 
 const Progress = (props: ProgressProps) => {
   const { stop } = props;
+  const [progress, setProgress] = useState(0);
   const animateId = useRef<number>(0);
   const progressBarRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
 
   const animationCallback = (time: number) => {
-    console.log(time);
-    if (stop) {
-      window.cancelAnimationFrame(animateId.current);
-      return;
-    }
-
-    if (progressBarRef.current) {
-      progressBarRef.current.style.width = `${progress}`;
-      setProgress((prev) => prev++);
-    }
-
-    animateId.current = window.requestAnimationFrame(animationCallback);
+    setProgress((prev) => Math.min(prev + time / 1000 / 144, 100)); // 단위 프레임당 시간
+    animateId.current = requestAnimationFrame(animationCallback);
   };
 
   useEffect(() => {
-    console.log(progressBarRef.current);
+    animateId.current = requestAnimationFrame(animationCallback);
+
     return () => {
-      window.cancelAnimationFrame(animateId.current);
+      window.requestAnimationFrame(animationCallback);
     };
-  }, [progress]);
+  }, [stop, progress]);
 
   return (
     <>
-      <div ref={progressBarRef} style={{ width: 0, height: '1px' }}></div>
+      <div
+        ref={progressBarRef}
+        style={{
+          width: `${progress}%`,
+          height: '20px',
+          backgroundColor: 'gray',
+        }}
+      />
     </>
   );
 };
