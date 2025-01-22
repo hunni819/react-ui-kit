@@ -25,9 +25,7 @@ const TabMenuList = (props: TabMenuListProps) => {
 
   return (
     <div className={tabsMenuListCls}>
-      {menus.map((menu, index) =>
-        cloneElement(menu, { index }, `Tab-${index}`)
-      )}
+      {menus.map((menu, index) => cloneElement(menu, { index }))}
     </div>
   );
 };
