@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * 1. api 호출 완료 시에 width 100%를 찍고 다시 0%
+ * 2. 한번 로딩 전에 api 호출이 완료될 경우 강제로 100%로 찍고 0%
+ */
+
 interface ProgressProps {
   stop: boolean;
 }
@@ -10,17 +15,24 @@ const Progress = (props: ProgressProps) => {
   const animateId = useRef<number>(0);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
-  const animationCallback = (time: number) => {
+  const animationCallback = () => {
     if (stop) {
       setProgress(100);
+      return;
     }
 
-    setProgress((prev) => Math.min(prev + time / 1000 / 144, 100)); // 단위 프레임당 시간
+    setProgress((prev) => Math.min(prev + 1000 / 144, 100));
     animateId.current = requestAnimationFrame(animationCallback);
   };
 
   useEffect(() => {
-    animateId.current = requestAnimationFrame(animationCallback);
+    if (stop) {
+      setProgress(100);
+    } else if (progress < 100) {
+      animateId.current = requestAnimationFrame(animationCallback);
+    } else if (progress === 100) {
+      setProgress(0);
+    }
 
     return () => {
       window.cancelAnimationFrame(animateId.current);
@@ -35,6 +47,7 @@ const Progress = (props: ProgressProps) => {
           width: `${progress}%`,
           height: '20px',
           backgroundColor: 'gray',
+          display: stop ? 'none' : 'block',
         }}
       />
     </>

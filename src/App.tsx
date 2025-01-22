@@ -13,12 +13,13 @@ function App() {
 
         if (response.ok) {
           const data = await response.json();
-          setStop(true);
           console.log(data);
+          setStop(true);
         }
-      }, 3000);
+      }, 500);
     } catch (err) {
       console.error(err);
+      setStop(true);
     }
   };
   useEffect(() => {
