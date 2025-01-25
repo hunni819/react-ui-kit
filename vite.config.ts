@@ -22,6 +22,10 @@ export default defineConfig({
         find: '@consts',
         replacement: path.resolve(__dirname, 'src/consts'),
       },
+      {
+        find: '@icons',
+        replacement: path.resolve(__dirname, 'src/components/icons'),
+      },
     ],
   },
   build: {

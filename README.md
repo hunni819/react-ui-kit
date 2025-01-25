@@ -1,6 +1,34 @@
 # react-ui-kit
 
-## ** Tabs **
+## ** Accordion **
+
+### **Children**
+
+- Root
+- Item
+- Trigger
+- Content
+
+### Example
+
+```jsx
+<Accordion className="">
+  <Accordion.Item className="">
+    <Accordion.Trigger className="">Title</Accordion.Trigger>
+    <Accordion.Content className="">Content</Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item className="">
+    <Accordion.Trigger className="">Title</Accordion.Trigger>
+    <Accordion.Content className="">content</Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item className="">
+    <Accordion.Trigger className="">Title</Accordion.Trigger>
+    <Accordion.Content className="">Content</Accordion.Content>
+  </Accordion.Item>
+</Accordion>
+```
+
+<!-- ## ** Tabs **
 
 ### **Children**
 
@@ -197,4 +225,4 @@
     <Select.Item value={'3'}>Three</Select.Item>
   </Select.Content>
 </Select>
-```
+``` -->

@@ -5,6 +5,30 @@ import { useEffect, useRef, useState } from 'react';
  * 2. 한번 로딩 전에 api 호출이 완료될 경우 강제로 100%로 찍고 0%
  */
 
+// const [stop, setStop] = useState<boolean>(false);
+//   const getUserData = async () => {
+//     setStop(false);
+//     try {
+//       setTimeout(async () => {
+//         const response = await fetch(
+//           'https://jsonplaceholder.typicode.com/todos/1'
+//         );
+
+//         if (response.ok) {
+//           const data = await response.json();
+//           console.log(data);
+//           setStop(true);
+//         }
+//       }, 500);
+//     } catch (err) {
+//       console.error(err);
+//       setStop(true);
+//     }
+//   };
+//   useEffect(() => {
+//     getUserData();
+//   }, []);
+
 interface ProgressProps {
   stop: boolean;
 }
