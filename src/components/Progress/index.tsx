@@ -1,80 +1,40 @@
-import { useEffect, useRef, useState } from 'react';
-
-/**
- * 1. api 호출 완료 시에 width 100%를 찍고 다시 0%
- * 2. 한번 로딩 전에 api 호출이 완료될 경우 강제로 100%로 찍고 0%
- */
-
-// const [stop, setStop] = useState<boolean>(false);
-//   const getUserData = async () => {
-//     setStop(false);
-//     try {
-//       setTimeout(async () => {
-//         const response = await fetch(
-//           'https://jsonplaceholder.typicode.com/todos/1'
-//         );
-
-//         if (response.ok) {
-//           const data = await response.json();
-//           console.log(data);
-//           setStop(true);
-//         }
-//       }, 500);
-//     } catch (err) {
-//       console.error(err);
-//       setStop(true);
-//     }
-//   };
-//   useEffect(() => {
-//     getUserData();
-//   }, []);
+import { FC, useMemo } from 'react';
+import ProgressIndicator from './ProgressIndicator';
+import { progressBaseCls, progressIndicatorBaseCls } from '@consts/className';
 
 interface ProgressProps {
-  stop: boolean;
+  stop?: boolean;
+  value?: number;
+  className?: string;
 }
 
-const Progress = (props: ProgressProps) => {
-  const { stop } = props;
-  const [progress, setProgress] = useState(0);
-  const animateId = useRef<number>(0);
-  const progressBarRef = useRef<HTMLDivElement>(null);
+const Progress: FC<ProgressProps> = (props) => {
+  const { stop, value, className: classNameProps } = props;
 
-  const animationCallback = () => {
-    if (stop) {
-      setProgress(100);
-      return;
-    }
-
-    setProgress((prev) => Math.min(prev + 1000 / 144, 100));
-    animateId.current = requestAnimationFrame(animationCallback);
-  };
-
-  useEffect(() => {
-    if (stop) {
-      setProgress(100);
-    } else if (progress < 100) {
-      animateId.current = requestAnimationFrame(animationCallback);
-    } else if (progress === 100) {
-      setProgress(0);
-    }
-
-    return () => {
-      window.cancelAnimationFrame(animateId.current);
-    };
-  }, [stop, progress]);
+  const progressIndicatorCls = useMemo(
+    () =>
+      classNameProps
+        ? progressIndicatorBaseCls
+        : `${progressIndicatorBaseCls} ${classNameProps}`,
+    [classNameProps]
+  );
 
   return (
-    <>
-      <div
-        ref={progressBarRef}
-        style={{
-          width: `${progress}%`,
-          height: '20px',
-          backgroundColor: 'gray',
-          display: stop ? 'none' : 'block',
-        }}
+    <div
+      className={progressBaseCls}
+      style={{
+        position: 'relative',
+        backgroundColor: 'oklch(0.968 0.007 247.896)',
+        borderRadius: '10px',
+        height: '10px',
+      }}
+    >
+      <ProgressIndicator
+        className={progressIndicatorCls}
+        stop={stop}
+        value={value}
       />
-    </>
+    </div>
   );
 };
 

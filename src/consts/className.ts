@@ -10,6 +10,10 @@ export const accordionItemBaseCls = getBaseCls('accordion-item');
 export const accordionTriggerBaseCls = getBaseCls('accordion-trigger');
 export const accordionContentBaseCls = getBaseCls('accordion-content');
 
+/** Progress Component */
+export const progressBaseCls = getBaseCls('progress');
+export const progressIndicatorBaseCls = getBaseCls('progress-indicator');
+
 /** Tabs Component */
 // export const tabsBaseCls = getBaseCls('tabs');
 // export const tabActiveCls = getBaseCls('tabs-active');
