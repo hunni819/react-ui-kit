@@ -6,31 +6,34 @@ interface ProgressProps {
   value?: number | 0;
 }
 
-const fps = 1000 * 60;
+const fps = 1000 * 4;
 
 const ProgressIndicator = (props: ProgressProps) => {
   const { className, stop, value } = props;
   const animateId = useRef<number>(0);
+  const endTime = useRef<number>(0);
+  const frameCount = useRef<number>(16.6);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(value || 0);
-  let start = 0;
-  let end = 0;
 
   const animationCallback = useCallback(
     (time: number) => {
-      if (!start) start = time;
-
-      end = time - start;
-      console.log(start, end);
+      frameCount.current += 16.6;
 
       if (stop) {
         setProgress(100);
-        end = start;
       }
-      setProgress((prev) => Math.min(prev + (end / fps) * 10, 100));
+
+      if (Math.floor(frameCount.current) >= fps) {
+        frameCount.current = 0;
+        endTime.current = time;
+      }
+
+      const elapsedTime = time - endTime.current;
+      setProgress((prev) => Math.min(prev + (elapsedTime / fps) * 0.5, 100));
       animateId.current = requestAnimationFrame(animationCallback);
     },
-    [stop, animateId.current]
+    [stop, animateId.current, frameCount.current, endTime.current]
   );
 
   useEffect(() => {
