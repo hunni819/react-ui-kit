@@ -10,14 +10,12 @@ const ProgressIndicator = (props: ProgressProps) => {
   const { className, stop, value } = props;
   const animateId = useRef<number>(0);
   const startTime = useRef<number>(0);
-  const frameCount = useRef<number>(0);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(value || 0);
 
   const animationCallback = useCallback(
     (time: number) => {
       if (!startTime.current) startTime.current = time;
-
       if (stop) setProgress(100);
 
       const elapsedTime = time - startTime.current;
@@ -28,11 +26,9 @@ const ProgressIndicator = (props: ProgressProps) => {
       }
 
       animateId.current = requestAnimationFrame(animationCallback);
-      frameCount.current++;
-
       if (progress === 100) setProgress(0);
     },
-    [stop, progress, animateId.current, frameCount.current, startTime.current]
+    [stop, progress, animateId.current, startTime.current]
   );
 
   useEffect(() => {
