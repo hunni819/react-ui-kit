@@ -14,6 +14,13 @@ export const accordionContentBaseCls = getBaseCls('accordion-content');
 export const progressBaseCls = getBaseCls('progress');
 export const progressIndicatorBaseCls = getBaseCls('progress-indicator');
 
+/** Toast Component */
+export const toasterBaseCls = getBaseCls('toaster');
+export const toastContentBaseCls = getBaseCls('toaster-content');
+export const toastTitleBaseCls = getBaseCls('toaster-title');
+export const toastDescBaseCls = getBaseCls('toaster-description');
+export const toastCloseBaseCls = getBaseCls('toaster-close');
+
 /** Tabs Component */
 // export const tabsBaseCls = getBaseCls('tabs');
 // export const tabActiveCls = getBaseCls('tabs-active');

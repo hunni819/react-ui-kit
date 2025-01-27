@@ -41,7 +41,7 @@ const ProgressIndicator = (props: ProgressProps) => {
     if (!stop && progress < 100) {
       animateId.current = requestAnimationFrame(animationCallback);
     }
-    if (!stop && progress === 100) setProgress(0);
+    if (!stop && progress >= 100) setProgress(0);
 
     return () => {
       window.cancelAnimationFrame(animateId.current);
