@@ -20,7 +20,7 @@ const TabMenu = (props: TabMenuProps) => {
     return classNameProps
       ? `${tabsMenuBaseCls} ${classNameProps}`
       : `${tabsMenuBaseCls}`;
-  }, []);
+  }, [classNameProps]);
 
   return (
     <div

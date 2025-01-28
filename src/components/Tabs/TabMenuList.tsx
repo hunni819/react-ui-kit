@@ -21,7 +21,7 @@ const TabMenuList = (props: TabMenuListProps) => {
     return classNameProps
       ? `${tabsMenuListBaseCls} ${classNameProps}`
       : `${tabsMenuListBaseCls}`;
-  }, []);
+  }, [classNameProps]);
 
   return (
     <div className={tabsMenuListCls}>
