@@ -28,7 +28,8 @@ const ProgressIndicator = (props: ProgressProps) => {
       animateId.current = requestAnimationFrame(animationCallback);
       if (progress === 100) setProgress(0);
     },
-    [stop, progress, animateId.current, startTime.current]
+
+    [animateId.current]
   );
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const ProgressIndicator = (props: ProgressProps) => {
     return () => {
       if (animateId.current) window.cancelAnimationFrame(animateId.current);
     };
-  }, [stop, progress, animateId.current]);
+  }, [animateId.current]);
 
   return (
     <>
