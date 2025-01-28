@@ -28,7 +28,19 @@
 </Accordion>
 ```
 
-<!-- ## ** Tabs **
+## ** Progress **
+
+### **Children**
+
+- Root
+
+### Example
+
+```jsx
+<Progress stop={stop} />
+```
+
+## ** Tabs **
 
 ### **Children**
 
@@ -52,6 +64,7 @@
 </Tabs>
 ```
 
+<!--
 ## ** Carousel **
 
 ### **Children**
@@ -192,18 +205,6 @@
 </Breadcrumb>
 ```
 
-## ** Progress **
-
-### **Children**
-
-- Root
-
-### Example
-
-```jsx
-<Progress stop={stop} />
-```
-
 ## ** Select **
 
 ### **Children**
@@ -215,7 +216,7 @@
 
 ### Example
 
-```jsx
+````jsx
 <Select onChange={handleChangeValue} value={selectedValue}>
   <Select.Trigger />
 
@@ -226,3 +227,7 @@
   </Select.Content>
 </Select>
 ``` -->
+
+```
+
+```

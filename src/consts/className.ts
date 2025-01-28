@@ -22,13 +22,13 @@ export const toastDescBaseCls = getBaseCls('toaster-description');
 export const toastCloseBaseCls = getBaseCls('toaster-close');
 
 /** Tabs Component */
-// export const tabsBaseCls = getBaseCls('tabs');
-// export const tabActiveCls = getBaseCls('tabs-active');
+export const tabsBaseCls = getBaseCls('tabs');
+export const tabActiveCls = getBaseCls('tabs-active');
 
-// export const tabsMenuListBaseCls = getBaseCls('tabs-menu-list');
-// export const tabsMenuBaseCls = getBaseCls('tabs-menu');
-// export const tabsPannelListBaseCls = getBaseCls('tabs-pannel-list');
-// export const tabsPannelBaseCls = getBaseCls('tabs-pannel');
+export const tabsMenuListBaseCls = getBaseCls('tabs-menu-list');
+export const tabsMenuBaseCls = getBaseCls('tabs-menu');
+export const tabsPannelListBaseCls = getBaseCls('tabs-pannel-list');
+export const tabsPannelBaseCls = getBaseCls('tabs-pannel');
 
 /** Carousel Component */
 // export const carouselBaseCls = getBaseCls('carousel');

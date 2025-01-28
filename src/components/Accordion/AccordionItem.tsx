@@ -8,8 +8,8 @@ import {
   useMemo,
   useState,
 } from 'react';
-import AccordianTrigger from './AccordionTrigger';
-import AccordianContent from './AccordionContent';
+import AccordionTrigger from './AccordionTrigger';
+import AccordionContent from './AccordionContent';
 import { accordionItemBaseCls } from '@consts/className';
 
 interface AccordionItemProps {
@@ -50,12 +50,12 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
   );
 
   const trigger = useMemo(
-    () => itemElement.find((child) => child.type === AccordianTrigger),
+    () => itemElement.find((child) => child.type === AccordionTrigger),
     [itemElement]
   );
 
   const content = useMemo(
-    () => itemElement.find((child) => child.type === AccordianContent),
+    () => itemElement.find((child) => child.type === AccordionContent),
     [itemElement]
   );
 

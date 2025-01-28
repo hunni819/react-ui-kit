@@ -3,12 +3,12 @@ import { useAccordionItemContext } from './AccordionItem';
 import Arrow from '@ui/Icons/Arrow';
 import { accordionTriggerBaseCls } from '@consts/className';
 
-interface AccordianTriggerProps {
+interface AccordionTriggerProps {
   children: ReactNode;
   className?: string;
 }
 
-const AccordianTrigger: FC<AccordianTriggerProps> = (props) => {
+const AccordionTrigger: FC<AccordionTriggerProps> = (props) => {
   const { children, className: classNameProps } = props;
   const { handleOpen, isOpen } = useAccordionItemContext();
 
@@ -46,4 +46,4 @@ const AccordianTrigger: FC<AccordianTriggerProps> = (props) => {
   );
 };
 
-export default AccordianTrigger;
+export default AccordionTrigger;

@@ -26,10 +26,7 @@ const AccordianContent: FC<AccordianContentProps> = (props) => {
   }, [isOpen, contentHeight]);
 
   useEffect(() => {
-    if (!content.current) {
-      return;
-    }
-    setContentHeight(content.current.scrollHeight);
+    if (content.current) setContentHeight(content.current.scrollHeight);
   }, [content.current]);
 
   const accordionContentCls = useMemo(
