@@ -37,7 +37,7 @@
 ### Example
 
 ```jsx
-<Progress stop={stop} />
+<Progress className="" stop={stop} value={0} />
 ```
 
 ## ** Tabs **
@@ -52,15 +52,15 @@
 ### Example
 
 ```jsx
-<Tabs>
-  <Tabs.MenuList>
-    <Tabs.Menu>Tab 1</Tabs.Menu>
-    <Tabs.Menu>Tab 2</Tabs.Menu>
-    <Tabs.Menu>Tab 3</Tabs.Menu>
+<Tabs className="">
+  <Tabs.MenuList className="">
+    <Tabs.Menu className="">Tab 1</Tabs.Menu>
+    <Tabs.Menu className="">Tab 2</Tabs.Menu>
+    <Tabs.Menu className="">Tab 3</Tabs.Menu>
   </Tabs.MenuList>
-  <Tabs.Pannel>Content-1</Tabs.Pannel>
-  <Tabs.Pannel>Content-2</Tabs.Pannel>
-  <Tabs.Pannel>Content-3</Tabs.Pannel>
+  <Tabs.Pannel className="">Content-1</Tabs.Pannel>
+  <Tabs.Pannel className="">Content-2</Tabs.Pannel>
+  <Tabs.Pannel className="">Content-3</Tabs.Pannel>
 </Tabs>
 ```
 
