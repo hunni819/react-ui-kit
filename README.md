@@ -28,18 +28,6 @@
 </Accordion>
 ```
 
-## ** Progress **
-
-### **Children**
-
-- Root
-
-### Example
-
-```jsx
-<Progress className="" stop={stop} value={0} />
-```
-
 ## ** Tabs **
 
 ### **Children**
@@ -62,6 +50,41 @@
   <Tabs.Pannel className="">Content-2</Tabs.Pannel>
   <Tabs.Pannel className="">Content-3</Tabs.Pannel>
 </Tabs>
+```
+
+## ** Modal **
+
+### **Children**
+
+- Root
+- Backdrop
+- Trigger
+- Content
+- Close
+
+### Example
+
+```jsx
+<Modal className="">
+  <Modal.Backdrop className="" />
+  <Modal.Trigger className="">모달 열기</Modal.Trigger>
+  <Modal.Content className="">
+    <Modal.Close className="">모달 닫기</Modal.Close>
+    Modal Content
+  </Modal.Content>
+</Modal>
+```
+
+## ** Progress **
+
+### **Children**
+
+- Root
+
+### Example
+
+```jsx
+<Progress className="" stop={stop} value={0} />
 ```
 
 <!--
@@ -146,34 +169,6 @@
   <Popover.Content>Place content for the popover here.</Popover.Content>
 </Popover>
 ```
-
-## ** Modal **
-
-### **Children**
-
-- Root
-- Backdrop
-- Trigger
-- Content
-- Close
-
-### Example
-
-```jsx
-<Modal
-  onCloseModal={handleCloseModal}
-  onOpenModal={handleOpenModal}
-  open={isOpen}
->
-  <Modal.Backdrop />
-  <Modal.Trigger />
-  <Modal.Content>
-    <Modal.Close />
-    <div>Modal Content</div>
-  </Modal.Content>
-</Modal>
-```
-
 ## ** DatePicker **
 
 ### **Children**

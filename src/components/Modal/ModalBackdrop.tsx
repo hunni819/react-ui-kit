@@ -3,7 +3,7 @@ import { useModalContext } from '.';
 import { modalBackdropBaseCls } from '@consts/className';
 
 interface ModalBackdropProps {
-  className: string;
+  className?: string;
 }
 
 const position = {
@@ -15,16 +15,11 @@ const position = {
 const ModalBackdrop = (props: ModalBackdropProps) => {
   const { className: classNameProps } = props;
   const backdropRef = useRef<HTMLDivElement>(null);
-  const { onCloseModal } = useModalContext();
+  const { setIsOpen } = useModalContext();
 
   const handleBackdrop = (e: MouseEvent) => {
-    if (!backdropRef.current) {
-      return;
-    }
-
-    if (backdropRef.current.contains(e.target as Node)) {
-      onCloseModal();
-      return;
+    if (backdropRef.current) {
+      if (backdropRef.current.contains(e.target as Node)) setIsOpen(false);
     }
   };
 

@@ -10,15 +10,15 @@ import { modalCloseBaseCls, modalCloseWrapCls } from '@consts/className';
 
 interface ModalCloseProps {
   children?: ReactNode;
-  className: string;
+  className?: string;
 }
 
 const ModalClose = (props: ModalCloseProps) => {
   const { className: classNameProps, children } = props;
-  const { onCloseModal } = useModalContext();
+  const { setIsOpen } = useModalContext();
 
   const handleClose = () => {
-    onCloseModal();
+    setIsOpen(false);
   };
 
   const closeElement = useMemo(
@@ -33,7 +33,7 @@ const ModalClose = (props: ModalCloseProps) => {
   }, [classNameProps]);
 
   const close = useMemo(() => {
-    return children ? (
+    return children === 'object' ? (
       closeElement.map((child) =>
         cloneElement(child, {
           onClick: () => {
@@ -43,7 +43,7 @@ const ModalClose = (props: ModalCloseProps) => {
       )
     ) : (
       <button className={modalCloseCls} onClick={handleClose}>
-        모달 닫기
+        {children}
       </button>
     );
   }, [closeElement, modalCloseCls]);

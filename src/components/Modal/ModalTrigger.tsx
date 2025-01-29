@@ -10,15 +10,15 @@ import { modalTriggerBaseCls, modalTriggerWrapCls } from '@consts/className';
 
 interface ModalTriggerProps {
   children?: ReactNode;
-  className: string;
+  className?: string;
 }
 
 const ModalTrigger = (props: ModalTriggerProps) => {
   const { className: classNameProps, children } = props;
-  const { onOpenModal } = useModalContext();
+  const { setIsOpen } = useModalContext();
 
   const handleTrigger = () => {
-    onOpenModal();
+    setIsOpen(true);
   };
 
   const triggerElement = useMemo(
@@ -33,7 +33,7 @@ const ModalTrigger = (props: ModalTriggerProps) => {
   }, [classNameProps]);
 
   const trigger = useMemo(() => {
-    return children ? (
+    return children === 'object' ? (
       triggerElement.map((child) =>
         cloneElement(child, {
           onClick: () => {
@@ -43,7 +43,7 @@ const ModalTrigger = (props: ModalTriggerProps) => {
       )
     ) : (
       <button className={modalTriggerCls} onClick={handleTrigger}>
-        모달 열기
+        {children}
       </button>
     );
   }, [triggerElement, modalTriggerCls]);

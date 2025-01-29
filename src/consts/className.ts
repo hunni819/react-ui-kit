@@ -30,6 +30,15 @@ export const tabsMenuBaseCls = getBaseCls('tabs-menu');
 export const tabsPannelListBaseCls = getBaseCls('tabs-pannel-list');
 export const tabsPannelBaseCls = getBaseCls('tabs-pannel');
 
+/** Modal Component */
+export const modalBaseCls = getBaseCls('modal');
+export const modalBackdropBaseCls = getBaseCls('modal-backdrop');
+export const modalCloseWrapCls = getBaseCls('modal-close-wrap');
+export const modalCloseBaseCls = getBaseCls('modal-close');
+export const modalContentBaseCls = getBaseCls('modal-content');
+export const modalTriggerWrapCls = getBaseCls('modal-trigger-wrap');
+export const modalTriggerBaseCls = getBaseCls('modal-trigger');
+
 /** Carousel Component */
 // export const carouselBaseCls = getBaseCls('carousel');
 // export const carouselActiveCls = getBaseCls('carousel-active');
@@ -67,15 +76,6 @@ export const tabsPannelBaseCls = getBaseCls('tabs-pannel');
 // export const popoverContentBaseCls = getBaseCls('popover-content');
 // export const popoverTriggerWrapCls = getBaseCls('popover-trigger-wrap');
 // export const popoverTriggerBaseCls = getBaseCls('popover-trigger');
-
-/** Modal Component */
-// export const modalBaseCls = getBaseCls('modal');
-// export const modalBackdropBaseCls = getBaseCls('modal-backdrop');
-// export const modalCloseWrapCls = getBaseCls('modal-close-wrap');
-// export const modalCloseBaseCls = getBaseCls('modal-close');
-// export const modalContentBaseCls = getBaseCls('modal-content');
-// export const modalTriggerWrapCls = getBaseCls('modal-trigger-wrap');
-// export const modalTriggerBaseCls = getBaseCls('modal-trigger');
 
 /** Breadcrumb Component */
 // export const breadcrumbBaseCls = getBaseCls('breadcrumb');

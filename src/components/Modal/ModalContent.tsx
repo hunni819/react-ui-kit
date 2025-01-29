@@ -4,7 +4,7 @@ import { modalContentBaseCls } from '@consts/className';
 
 interface ModalContentProps {
   children: ReactNode;
-  className: string;
+  className?: string;
 }
 
 const position = {

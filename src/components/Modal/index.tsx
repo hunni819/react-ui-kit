@@ -1,11 +1,14 @@
 import {
   Children,
   createContext,
+  Dispatch,
   FC,
   ReactElement,
   ReactNode,
+  SetStateAction,
   useContext,
   useMemo,
+  useState,
 } from 'react';
 import ModalBackdrop from './ModalBackdrop';
 import ModalTrigger from './ModalTrigger';
@@ -16,10 +19,7 @@ import { modalBaseCls } from '@consts/className';
 
 interface ModalProps {
   children: ReactNode;
-  className: string;
-  onCloseModal: () => void;
-  onOpenModal: () => void;
-  open: boolean;
+  className?: string;
 }
 
 interface ModalCompound {
@@ -30,15 +30,13 @@ interface ModalCompound {
 }
 
 interface ModalContextType {
-  onCloseModal: () => void;
-  onOpenModal: () => void;
-  open: boolean;
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const ModalContext = createContext<ModalContextType>({
-  onCloseModal: () => {},
-  onOpenModal: () => {},
-  open: false,
+  isOpen: false,
+  setIsOpen: () => {},
 });
 
 export const useModalContext = () => {
@@ -50,13 +48,8 @@ export const useModalContext = () => {
 };
 
 const Modal: FC<ModalProps> & ModalCompound = (props) => {
-  const {
-    children,
-    className: classNameProps,
-    onCloseModal,
-    onOpenModal,
-    open,
-  } = props;
+  const { children, className: classNameProps } = props;
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const modalElement = useMemo(
     () => Children.toArray(children) as ReactElement[],
@@ -78,9 +71,8 @@ const Modal: FC<ModalProps> & ModalCompound = (props) => {
   );
 
   const modalContext = {
-    onCloseModal,
-    onOpenModal,
-    open,
+    isOpen,
+    setIsOpen,
   };
 
   const modalCls = useMemo(() => {
@@ -93,8 +85,8 @@ const Modal: FC<ModalProps> & ModalCompound = (props) => {
     <ModalContext.Provider value={modalContext}>
       <div className={modalCls}>
         {trigger}
-        {open && createPortal(backdrop, document.body)}
-        {open && createPortal(content, document.body)}
+        {isOpen && createPortal(backdrop, document.body)}
+        {isOpen && createPortal(content, document.body)}
       </div>
     </ModalContext.Provider>
   );
