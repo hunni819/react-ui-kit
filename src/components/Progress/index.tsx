@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { createContext, FC, useContext, useMemo } from 'react';
 import ProgressIndicator from './ProgressIndicator';
 import { progressBaseCls, progressIndicatorBaseCls } from '@consts/className';
 
@@ -7,6 +7,25 @@ interface ProgressProps {
   value?: number;
   className?: string;
 }
+
+type ProgressContextType = {
+  value: number | undefined;
+  stop: boolean | undefined;
+};
+
+const ProgressContext = createContext<ProgressContextType>({
+  value: 0,
+  stop: false,
+});
+
+export const useProgressContext = () => {
+  const context = useContext(ProgressContext);
+
+  if (!context) {
+    throw new Error('ProgressContext를 호출할 수 없는 범위입니다.');
+  }
+  return context;
+};
 
 const Progress: FC<ProgressProps> = (props) => {
   const { stop, value, className: classNameProps } = props;
@@ -19,22 +38,25 @@ const Progress: FC<ProgressProps> = (props) => {
     [classNameProps]
   );
 
+  const progressContext = {
+    value,
+    stop,
+  };
+
   return (
-    <div
-      className={progressBaseCls}
-      style={{
-        position: 'relative',
-        backgroundColor: 'oklch(0.968 0.007 247.896)',
-        borderRadius: '10px',
-        height: '10px',
-      }}
-    >
-      <ProgressIndicator
-        className={progressIndicatorCls}
-        stop={stop}
-        value={value}
-      />
-    </div>
+    <ProgressContext.Provider value={progressContext}>
+      <div
+        className={progressBaseCls}
+        style={{
+          position: 'relative',
+          backgroundColor: 'oklch(0.968 0.007 247.896)',
+          borderRadius: '10px',
+          height: '10px',
+        }}
+      >
+        <ProgressIndicator className={progressIndicatorCls} />
+      </div>
+    </ProgressContext.Provider>
   );
 };
 

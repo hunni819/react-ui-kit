@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useProgressContext } from '.';
 
 interface ProgressProps {
   className?: string;
-  stop?: boolean;
-  value?: number;
 }
 
 const ProgressIndicator = (props: ProgressProps) => {
-  const { className, stop, value } = props;
+  const { className } = props;
+  const { stop, value } = useProgressContext();
   const animateId = useRef<number>(0);
   const startTime = useRef<number>(0);
   const progressBarRef = useRef<HTMLDivElement>(null);
