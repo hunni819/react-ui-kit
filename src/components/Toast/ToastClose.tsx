@@ -1,31 +1,37 @@
 import { toastCloseBaseCls } from '@consts/className';
-import { FC, useMemo } from 'react';
+import { Children, cloneElement, FC, ReactElement, useMemo } from 'react';
+import { BaseToastProps } from './types';
 
-interface ToastCloseProps {
-  className?: string;
+interface ToastCloseProps extends BaseToastProps {
   onClick: () => void;
 }
 
 const ToastClose: FC<ToastCloseProps> = (props) => {
-  const { className: classNameProps, onClick } = props;
+  const { children, onClick } = props;
 
   const handleClose = () => {
     onClick();
   };
 
-  const toasterCloseCls = useMemo(
-    () =>
-      classNameProps
-        ? `${toastCloseBaseCls}`
-        : `${toastCloseBaseCls} ${classNameProps}`,
-    [classNameProps]
-  );
+  const closeElement = Children.toArray(children) as ReactElement[];
 
-  return (
-    <button className={toasterCloseCls} onClick={handleClose}>
-      Close
-    </button>
-  );
+  const close = useMemo(() => {
+    return children === 'object' ? (
+      closeElement.map((child) =>
+        cloneElement(child, {
+          onClick: () => {
+            handleClose();
+          },
+        })
+      )
+    ) : (
+      <button className={toastCloseBaseCls} onClick={handleClose}>
+        {children}
+      </button>
+    );
+  }, [closeElement, toastCloseBaseCls]);
+
+  return close;
 };
 
 export default ToastClose;

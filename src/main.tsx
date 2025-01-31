@@ -5,6 +5,6 @@ import { Toaster } from '@ui/Toast';
 createRoot(document.getElementById('root')!).render(
   <>
     <App />
-    <Toaster />
+    <Toaster className="" />
   </>
 );

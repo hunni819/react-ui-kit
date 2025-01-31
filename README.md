@@ -75,6 +75,23 @@
 </Modal>
 ```
 
+## ** Popover **
+
+### **Children**
+
+- Root
+- Trigger
+- Content
+
+### Example
+
+```jsx
+<Popover>
+  <Popover.Trigger>Open</Popover.Trigger>
+  <Popover.Content>Place content for the popover here.</Popover.Content>
+</Popover>
+```
+
 ## ** Progress **
 
 ### **Children**
@@ -85,6 +102,18 @@
 
 ```jsx
 <Progress className="" stop={stop} value={0} />
+```
+
+## ** Toast **
+
+### Example
+
+```jsx
+const { toast } = useToast();
+const handleClickOpenToast = () => {
+  toast({ title: 'ToastTitle', description: 'ToastDescription' });
+};
+return <button onClick={handleClickOpenToast}>open toast</button>;
 ```
 
 <!--
@@ -153,22 +182,6 @@
 </Pagination>
 ```
 
-## ** Popover **
-
-### **Children**
-
-- Root
-- Trigger
-- Content
-
-### Example
-
-```jsx
-<Popover>
-  <Popover.Trigger>Open</Popover.Trigger>
-  <Popover.Content>Place content for the popover here.</Popover.Content>
-</Popover>
-```
 ## ** DatePicker **
 
 ### **Children**

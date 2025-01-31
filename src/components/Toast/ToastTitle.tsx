@@ -1,23 +1,13 @@
 import { toastTitleBaseCls } from '@consts/className';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC } from 'react';
+import { BaseToastProps } from './types';
 
-interface ToastTitleProps {
-  className?: string;
-  children: ReactNode;
-}
+interface ToastTitleProps extends BaseToastProps {}
 
 const ToastTitle: FC<ToastTitleProps> = (props) => {
-  const { children, className: classNameProps } = props;
+  const { children } = props;
 
-  const toastTitleCls = useMemo(
-    () =>
-      classNameProps
-        ? toastTitleBaseCls
-        : `${toastTitleBaseCls} ${classNameProps}`,
-    [classNameProps]
-  );
-
-  return <div className={toastTitleCls}>{children}</div>;
+  return <div className={toastTitleBaseCls}>{children}</div>;
 };
 
 export default ToastTitle;

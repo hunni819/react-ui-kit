@@ -8,40 +8,46 @@ import ToastClose from '../ToastClose';
 interface UseToastProps {
   title: string;
   description: string;
-  duration: number;
+  duration?: number;
+  position?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
 }
+
+const clear = (
+  rootCurrent: Root | undefined,
+  idCurrent: NodeJS.Timeout | undefined
+) => {
+  if (rootCurrent) rootCurrent.unmount();
+  if (idCurrent) clearTimeout(idCurrent);
+};
 
 const useToast = () => {
   const timerId = useRef<NodeJS.Timeout>();
   const root = useRef<Root>();
 
   const handleClose = () => {
-    if (root.current) root.current.unmount();
-    if (timerId.current) clearTimeout(timerId.current);
+    clear(root.current, timerId.current);
   };
 
-  const toast = ({ title, description, duration }: UseToastProps) => {
-    if (root.current) root.current.unmount();
+  const toast = ({ title, description, duration = 10000 }: UseToastProps) => {
+    clear(root.current, timerId.current);
     root.current = createRoot(document.getElementById('ui-toaster')!);
 
     timerId.current = setTimeout(() => {
-      if (root.current) root.current.unmount();
-      if (timerId.current) clearTimeout(timerId.current);
+      clear(root.current, timerId.current);
     }, duration);
 
     return root.current.render(
-      <ToastContent>
+      <ToastContent position={'bottom-left'}>
         <ToastTitle>{title}</ToastTitle>
         <ToastDescription>{description}</ToastDescription>
-        <ToastClose onClick={handleClose} />
+        <ToastClose onClick={handleClose}>close</ToastClose>
       </ToastContent>
     );
   };
 
   useEffect(() => {
     return () => {
-      if (timerId.current) clearTimeout(timerId.current);
-      if (root.current) root.current.unmount();
+      clear(root.current, timerId.current);
     };
   }, [timerId.current, root.current]);
 
